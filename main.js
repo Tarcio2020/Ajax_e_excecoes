@@ -18,9 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Com Jquery
 $(document).ready(function() {
+    
     $('#buscar').click(function() {
         const cep = $('#cep').val();
         const endpoint = `https://viacep.com.br/ws/${cep}/json`;
+        const botao = $(this);
+        $(botao).find('i').addClass('d-none');
+        $(botao).find('span').removeClass('d-none');
+
 
         $.ajax(endpoint).done(function(respostas) {
             const logradouro = respostas.logradouro;
@@ -29,11 +34,13 @@ $(document).ready(function() {
             const estado = respostas.uf;
             const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
 
-            $('#endereco').val(endereco)
+            $('#endereco').val(endereco);
 
-
-
-
+        setTimeout(function() {
+            $(botao).find('i').removeClass('d-none');
+            $(botao).find('span').addClass('d-none');
+            
+        },2500);
         })
     })
 })

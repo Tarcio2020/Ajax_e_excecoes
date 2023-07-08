@@ -28,9 +28,12 @@
                 <h4>Dados da Entrega</h4>
             </div>
             <div class="row mb-5">
-                <div class="col-3">
+                <div class="col-3 d-flex">
                     <input type="text" class="form-control" placeholder="CEP" id="cep">
-                    <button  type="button" class="btn btn-primary" id="buscar">Buscar</button>
+                    <button  type="button" class="btn btn-primary" id="buscar">
+                        <i class="bi bi-search"></i>
+                        <span class=" d-none spinner-border spinner-border-rm"></span>
+                    </button>
                 </div>
                 <div class="col-7">
                     <input type="text" class="form-control" placeholder="Endereço" id="endereco">
@@ -42,6 +45,7 @@
             <button type="submit" class="btn btn-success">Enviar Pedido</button>
         </form>
     </div>
+    <script src="jquery.mask.min.js"></script>
     <script src="jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
