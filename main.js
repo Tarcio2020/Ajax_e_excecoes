@@ -57,9 +57,13 @@ $(document).ready(function() {
 
          
         })
+
+
         .catch(function(erro) {
             alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde.")
         })
+
+
         .finally(function() {
             setTimeout(function() {
                 $(botao).find('i').removeClass('d-none');
@@ -67,6 +71,15 @@ $(document).ready(function() {
                 
             },1000);
         })
+    })
+
+
+    $('#form-pedido').submit(function(e) {
+        e.preventDefault();
+
+        if ($('#nome').val().legth === 0) {
+            throw new Error('Digite o Nome')
+        }
     })
 })
 
