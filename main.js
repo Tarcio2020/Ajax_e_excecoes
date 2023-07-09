@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Com Jquery
 $(document).ready(function() {
+    $('#cep').mask('00000-000');
     
     $('#buscar').click(function() {
         const cep = $('#cep').val();
@@ -26,7 +27,7 @@ $(document).ready(function() {
         $(botao).find('i').addClass('d-none');
         $(botao).find('span').removeClass('d-none');
 
-
+        /* CHAMANDO A REQUISIÇÃO AJAX EM JQUERY
         $.ajax(endpoint).done(function(respostas) {
             const logradouro = respostas.logradouro;
             const bairro = respostas.bairro;
@@ -42,6 +43,18 @@ $(document).ready(function() {
             
         },2500);
         })
+        */
+
+        fetch(endpoint).then(function(respostas){
+            return respostas.json();            
+        }).then(function(json){
+   
+        
+        
+            console.log(json)
+        })
+
+
     })
 })
 
