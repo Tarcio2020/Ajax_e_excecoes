@@ -48,13 +48,20 @@ $(document).ready(function() {
         fetch(endpoint).then(function(respostas){
             return respostas.json();            
         }).then(function(json){
-   
-        
-        
-            console.log(json)
+            const logradouro = json.logradouro;
+            const bairro = json.bairro;
+            const cidade = json.localidade;
+            const estado = json.uf;
+            const endereco = `${logradouro}, ${bairro} - ${cidade} - ${estado}`;
+            $('#endereco').val(endereco);
+
+            setTimeout(function() {
+                $(botao).find('i').removeClass('d-none');
+                $(botao).find('span').addClass('d-none');
+                
+            },2000);
         })
-
-
+        
     })
 })
 
